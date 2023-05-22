@@ -1,8 +1,3 @@
-<ul>
-  <li><a href = "/users">Users</a></li>
-  <li><a href = "/photos">Users</a></li>
-
-</ul>
 
 <h1>List of users</h1>
 
@@ -25,7 +20,7 @@
   <tr>
     <td><%= a_user.id%></td>
     <td><%= a_user.username%></td>
-    <td><a href="/">Show details</a></td>
+    <td><a href="/users/<%= a_user.username%>">Show details</a></td>
   </tr>
   <% end %>
 
