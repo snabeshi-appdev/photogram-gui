@@ -11,11 +11,11 @@
   <dd><%= @the_photo.created_at %></dd>
   <dt>Edit photo</dt>
   <dd>
-    <form action = "/photos/insert_photo_record">
+    <form action = "/photos/update_photo/<%= @the_photo.id %>">
       <label for = "image">Image</label>
-      <input id = "image" type = "text" value = "<%= @the_photo.image%>" name = "xx">
+      <input id = "image" type = "text" value = "<%= @the_photo.image%>" name = "query_image">
       <label for = "caption">Caption</label>
-      <input id = "caption" type = "text" value = "<%= @the_photo.caption %>" name = "xx">
+      <textarea id = "caption" name = "query_caption"><%= @the_photo.caption %></textarea>
       <button>Update photo</button>
     </form>
   </dd>
@@ -47,6 +47,6 @@
   <label for = "author_id">Author ID</label>
   <input id = "author_id" type = "text" name = "xx">
   <label for = "comment">Comment</label>
-  <input id = "comment" type = "text" placeholder = "Enter a comment..." name = "xx">
+  <textarea id = "comment" placeholder = "Enter a comment..." name = "xx"></textarea>
   <button>Add comment</button>
 </form>
