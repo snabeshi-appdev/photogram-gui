@@ -1,0 +1,52 @@
+<h1>Photo Details</h1>
+
+<dl>
+  <dt>Image</dt>
+  <dd><img src="<%= @the_photo.image %>"></dd>
+  <dt>Caption</dt>
+  <dd><%= @the_photo.caption %></dd>
+  <dt>Owner</dt>
+  <dd><%= @the_photo.poster.username %></dd>
+  <dt>Posted</dt>
+  <dd><%= @the_photo.created_at %></dd>
+  <dt>Edit photo</dt>
+  <dd>
+    <form action = "/photos/insert_photo_record">
+      <label for = "image">Image</label>
+      <input id = "image" type = "text" value = "<%= @the_photo.image%>" name = "xx">
+      <label for = "caption">Caption</label>
+      <input id = "caption" type = "text" value = "<%= @the_photo.caption %>" name = "xx">
+      <button>Update photo</button>
+    </form>
+  </dd>
+  <dt>Delete photo</dt>
+  <dd><a href="/delete_photo/<%= @the_photo.id %>">Delete this photo</a></dd>
+</dl>
+
+<h2>Comments</h2>
+<table>
+  <tr>
+    <th>Commenter</th>
+    <th>Comment</th>
+    <th>Posted</th>
+  </tr>
+
+  <% @the_photo.comments.each do |a_comment|%>
+    <tr>
+      <td><%= a_comment.commenter.username %></td>
+      <td><%= a_comment.body %></td>
+      <td><%= a_comment.created_at %></td>
+    </tr>
+  <% end %>
+</table>
+
+<h3>Add a new comment</h3>
+<form action = "/comments">
+  <label for = "photo_id">Photo ID</label>
+  <input id = "photo_id" type = "text" value = "<%= @the_photo.id%>" name = "xx">
+  <label for = "author_id">Author ID</label>
+  <input id = "author_id" type = "text" name = "xx">
+  <label for = "comment">Comment</label>
+  <input id = "comment" type = "text" placeholder = "Enter a comment..." name = "xx">
+  <button>Add comment</button>
+</form>
